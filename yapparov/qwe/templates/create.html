@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Добавление студента</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>
+            <label for="">Введите имя</label><br>
+            <input type="text" name="name" id="">
+        </p>
+        <p>
+            <label for="">Выберите курсы</label><br>
+            <div>
+                {% for course in courses %}
+                    <input type="checkbox" name="courses" value="{{ course.id }}" /> {{ course.name }}
+                {% endfor %}
+            </div>
+        </p>
+        <input type="submit" value="Сохранить">
+    </form>
+</body>
+</html>
